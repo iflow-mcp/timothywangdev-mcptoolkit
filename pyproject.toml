@@ -1,0 +1,18 @@
+[project]
+name = "fastmcp-multi-tenancy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.104.0",
+    "mcp[cli]>=0.1.0",
+    "redis>=5.0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["src/fastmcp_multi_tenancy"]

@@ -85,7 +85,7 @@ Migrating from FastMCP to MCPToolKit is straightforward. Here's how to update yo
 + # Create a production-ready MCP server
 + mcp = MCPToolKit(
 +     name="Demo",
-+     redis_url=os.environ.get("REDIS_URL", "redis://localhost:6379/0")
++     redis_url=os.environ["REDIS_URL"]  # Required: Set REDIS_URL in your environment
 + )
 
 # Your tools and resources remain exactly the same
@@ -102,8 +102,13 @@ def get_greeting(name: str) -> str:
 
 The migration requires just a few simple changes:
 1. Change the import statement
-2. Add Redis URL configuration
+2. Set the `REDIS_URL` environment variable (required for production)
 3. That's it! All your existing tools, resources, and prompts continue to work exactly as before
+
+For local development, you can set the environment variable:
+```bash
+export REDIS_URL="redis://localhost:6379/0"
+```
 
 For serverless deployments, you'll also need to update your deployment configuration:
 
@@ -122,7 +127,7 @@ For serverless deployments, you'll also need to update your deployment configura
 + 
 + app = create_vercel_app(
 +     name="Demo",
-+     redis_url=os.environ.get("REDIS_URL")
++     redis_url=os.environ["REDIS_URL"]  # Required: Set REDIS_URL in your environment
 + )
 ```
 

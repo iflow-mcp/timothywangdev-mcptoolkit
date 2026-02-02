@@ -1,5 +1,5 @@
 [project]
-name = "fastmcp-multi-tenancy"
+name = "iflow-mcp_timothywangdev_fastmcp-multi-tenancy"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -9,6 +9,9 @@ dependencies = [
     "mcp[cli]>=0.1.0",
     "redis>=5.0.1",
 ]
+
+[project.scripts]
+iflow-mcp-timothywangdev-fastmcp-multi-tenancy = "main:main"
 
 [build-system]
 requires = ["hatchling"]

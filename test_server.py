@@ -1,9 +1,9 @@
+#!/usr/bin/env python3
 """
-MCPToolKit - Production-Ready MCP Server Framework
-Main entry point for stdio transport
+Simple test script for MCP server
 """
-
 import asyncio
+import json
 from mcp.server.stdio import stdio_server
 from mcp.server.fastmcp import FastMCP
 
@@ -32,17 +32,9 @@ def divide(a: float, b: float) -> float:
         raise ValueError("Cannot divide by zero")
     return a / b
 
-async def main():
-    """Main entry point"""
-    async with stdio_server() as (read_stream, write_stream):
-        await mcp.run(
-            read_stream,
-            write_stream
-        )
-
-def main_sync():
-    """Synchronous entry point for uvx"""
-    asyncio.run(main())
-
 if __name__ == "__main__":
-    main_sync()
+    # Just list the tools for testing
+    print("Available tools:")
+    for tool in mcp._tool_manager.list_tools():
+        print(f"  - {tool.name}: {tool.description}")
+    print("\nTotal tools:", len(mcp._tool_manager.list_tools()))

@@ -11,11 +11,11 @@ dependencies = [
 ]
 
 [project.scripts]
-iflow-mcp-timothywangdev-fastmcp-multi-tenancy = "main:main"
+iflow-mcp-timothywangdev-fastmcp-multi-tenancy = "fastmcp_multi_tenancy.main:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build]
+[tool.hatch.build.targets.wheel]
 packages = ["src/fastmcp_multi_tenancy"]
